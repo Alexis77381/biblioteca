@@ -2,25 +2,52 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ book.title }} - Librería Online</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <a href="{% url 'book_list' %}">← Volver al catálogo</a>
-    
-    <h1>{{ book.title }}</h1>
-    <p><strong>Autor:</strong> {{ book.author.name }}</p>
-    <p><strong>Precio:</strong> ${{ book.price }}</p>
-    <p><strong>Disponibles en stock:</strong> {{ book.stock }}</p>
-    
-    <h3>Sinopsis</h3>
-    <p>{{ book.description }}</p>
+<body class="bg-light">
 
-    {% if book.stock > 0 %}
-        <a href="{% url 'cart:cart_add' book.id %}">
-            <button type="button">Añadir al carrito</button>
-        </a>
-    {% else %}
-        <p style="color: red;">Agotado</p>
-    {% endif %}
+    <div class="container my-5">
+        <a href="{% url 'book_list' %}" class="btn btn-outline-secondary mb-4">← Volver al catálogo</a>
+        
+        <div class="row bg-white p-4 rounded shadow-sm">
+            <!-- Columna de la Imagen -->
+            <div class="col-md-4 mb-4 mb-md-0 text-center">
+                {% if book.cover_image %}
+                    <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="img-fluid rounded shadow" style="max-height: 400px; object-fit: cover;">
+                {% else %}
+                    <div class="bg-secondary text-white p-5 rounded d-flex align-items-center justify-content-center" style="height: 300px;">
+                        <span>Sin Portada Disponible</span>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Columna de Información -->
+            <div class="col-md-8">
+                <h1 class="mb-3">{{ book.title }}</h1>
+                <h4 class="text-muted mb-3">Autor: {{ book.author.name }}</h4>
+                <h3 class="text-success mb-3">${{ book.price }}</h3>
+                <p><strong>Disponibles en stock:</strong> {{ book.stock }}</p>
+                
+                <hr>
+                
+                <h5>Sinopsis</h5>
+                <p class="text-muted">{{ book.description }}</p>
+
+                <div class="mt-4">
+                    {% if book.stock > 0 %}
+                        <a href="{% url 'cart:cart_add' book.id %}">
+                            <button type="button" class="btn btn-success btn-lg">Añadir al carrito</button>
+                        </a>
+                    {% else %}
+                        <p class="text-danger fw-bold">Agotado temporalmente</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

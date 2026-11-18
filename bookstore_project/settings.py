@@ -129,3 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 # Redirección después de cerrar sesión
 LOGOUT_REDIRECT_URL = '/'
+
+# Configuración de Archivos Media (Imágenes de portada)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
