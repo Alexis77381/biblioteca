@@ -20,6 +20,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalog.urls')),  # Conecta las rutas de la app catalog a la raíz
+    path('accounts/', include('accounts.urls')),  # <--- Agrega esto
+    path('cart/', include('cart.urls')),
     path('', include('catalog.urls')),
 ]
+

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
-    'cart', #
+    'cart', 
+    'accounts',  # Agrega la aplicación de cuentas
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redirección después de iniciar sesión con éxito (regresa al catálogo)
+LOGIN_REDIRECT_URL = '/'
+# Redirección después de cerrar sesión
+LOGOUT_REDIRECT_URL = '/'
