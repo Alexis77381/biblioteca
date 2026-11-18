@@ -21,4 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('catalog.urls')),  # Conecta las rutas de la app catalog a la raíz
+    path('', include('catalog.urls')),
 ]

@@ -16,7 +16,9 @@
     <p>{{ book.description }}</p>
 
     {% if book.stock > 0 %}
-        <button type="button">Añadir al carrito</button>
+        <a href="{% url 'cart:cart_add' book.id %}">
+            <button type="button">Añadir al carrito</button>
+        </a>
     {% else %}
         <p style="color: red;">Agotado</p>
     {% endif %}
