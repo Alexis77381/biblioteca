@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book.title }} - Librería Online</title>
+</head>
+<body>
+    <a href="{% url 'book_list' %}">← Volver al catálogo</a>
+    
+    <h1>{{ book.title }}</h1>
+    <p><strong>Autor:</strong> {{ book.author.name }}</p>
+    <p><strong>Precio:</strong> ${{ book.price }}</p>
+    <p><strong>Disponibles en stock:</strong> {{ book.stock }}</p>
+    
+    <h3>Sinopsis</h3>
+    <p>{{ book.description }}</p>
+
+    {% if book.stock > 0 %}
+        <button type="button">Añadir al carrito</button>
+    {% else %}
+        <p style="color: red;">Agotado</p>
+    {% endif %}
+</body>
+</html>
