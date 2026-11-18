@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Librería Online</title>
+</head>
+<body>
+    <h1>Catálogo de Libros</h1>
+    
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.title }}</strong> - ${{ book.price }}
+                <br>
+                <span>Autor: {{ book.author.name }}</span>
+            </li>
+        {% empty %}
+            <p>No hay libros disponibles por el momento.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
