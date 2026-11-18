@@ -20,8 +20,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),  # <--- Agrega esto
+    path('accounts/', include('accounts.urls')),
     path('cart/', include('cart.urls')),
+    path('orders/', include('orders.urls')),  # <--- Agrega esto
     path('', include('catalog.urls')),
 ]
 

@@ -21,7 +21,10 @@
             <p>Tu carrito está vacío.</p>
         {% endfor %}
     </ul>
-
+<br>
+    <a href="{% url 'orders:order_create' %}">
+        <button type="button" style="background-color: green; color: white; padding: 10px;">Finalizar Compra</button>
+    </a>
     <h3>Total General: ${{ cart.get_total_price }}</h3>
 
     <a href="{% url 'book_list' %}">← Seguir comprando</a>

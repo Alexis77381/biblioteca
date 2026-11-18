@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido Exitoso</title>
+</head>
+<body>
+    <h1>¡Gracias por tu compra!</h1>
+    <p>Tu orden ha sido registrada con éxito bajo el número: <strong>#{{ order.id }}</strong>.</p>
+    <a href="{% url 'book_list' %}">Volver al catálogo principal</a>
+</body>
+</html>

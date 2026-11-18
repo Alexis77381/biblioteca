@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Compra - Librería Online</title>
+</head>
+<body>
+    <h1>Finalizar tu Compra</h1>
+
+    <h2>Resumen de tu carrito</h2>
+    <ul>
+        {% for item in cart %}
+            <li>{{ item.book.title }} x {{ item.quantity }} = ${{ item.total_price }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total general: ${{ cart.get_total_price }}</strong></p>
+
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Realizar Pedido</button>
+    </form>
+</body>
+</html>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'catalog',
     'cart', 
     'accounts',  # Agrega la aplicación de cuentas
+    'orders',  # Agrega la aplicación de pedidos
 ]
 
 MIDDLEWARE = [
